@@ -1,0 +1,72 @@
+{
+  "name": "preact-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/clearDb.js && jest",
+    "build": "preact build --no-prerender",
+    "rename-public": "rm -rf ./public && mv ./build ./public",
+    "prod": "npm run build && npm run rename-public && npm run api:start",
+    "api:start": "json-server --watch ./src/db.json",
+    "dev": "preact watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "jest": {
+    "setupFiles": [
+      "./tests/setup.js"
+    ],
+    "testURL": "http://localhost:8080",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.css$": "<rootDir>/tests/cssStub.js",
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat"
+    }
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.2",
+    "babel-jest": "^20.0.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.24.0",
+    "babel-runtime": "^6.11.6",
+    "chai": "^4.0.2",
+    "eslint": "^4.3.0",
+    "eslint-config-synacor": "^1.0.1",
+    "if-env": "^1.0.0",
+    "jest": "^20.0.4",
+    "moxios": "^0.4.0",
+    "nightmare": "^2.10.0",
+    "preact-cli": "^1.4.1",
+    "preact-jsx-chai": "^2.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "eslint": "^4.3.0",
+    "json-server": "^0.12.0",
+    "material-design-lite": "^1.3.0",
+    "preact": "^8.2.1",
+    "preact-compat": "^3.16.0",
+    "preact-mdl": "^2.2.1",
+    "preact-router": "^2.5.5",
+    "time-ago": "^0.1.0"
+  }
+}

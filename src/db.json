@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Anna",
+      "email": "anna@asd.net",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "email": "john@asd.net",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "Philip",
+      "email": "pip@asd.net",
+      "password": "1234"
+    }
+  ],
+  "comments": [
+    {
+      "authorId": 1,
+      "timestamp": 1503514700679,
+      "content": "this is a test",
+      "id": 1
+    }
+  ]
+}

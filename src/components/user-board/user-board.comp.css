@@ -1,0 +1,42 @@
+.def {
+  margin-top: 50px;
+}
+
+.def ul {
+  margin: 0;
+  padding: 0;
+}
+
+.commentItem {
+  display: flex;
+}
+
+.updateBtn {
+  position: fixed;
+  bottom: 20vh;
+  left: 2vw;
+  z-index: 999;
+  color: green;
+  background: lightgray;
+  border-radius: 25px;
+}
+
+.commentForm {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background-color: lightgray;
+  z-index: 10;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.commentForm button {
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+}
+
+.commentForm button:nth-child(2) {
+  right: 30px !important;
+}
