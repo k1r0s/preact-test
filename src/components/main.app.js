@@ -12,6 +12,16 @@ export default class Main extends Component {
 		currentUser: null
 	}
 
+	//remove me
+	componentDidMount() {
+		this.handleLoginSuccess({
+      "id": 4,
+      "name": "Alex Mortinger",
+      "email": "alex@asd.net",
+      "password": "1234"
+    })
+	}
+
 	handleLoginSuccess = user => {
 		this.setState((old) => {
 			old.currentUser = user;
@@ -26,17 +36,19 @@ export default class Main extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Header displayLinks={!!this.state.currentUser}/>
-				<div id="app-content">
+				<Header logged={!!this.state.currentUser}/>
 				{!this.state.currentUser ?
 					<Login success={this.handleLoginSuccess} />
 					:
-					<Router onChange={this.handleRoute}>
-						<Home session={this.state.currentUser} path="/" />
-						<UserBoard session={this.state.currentUser} path="/board/" />
-					</Router>
+					<div class="main-container">
+						<div class="wrap">
+							<Router onChange={this.handleRoute}>
+								<Home session={this.state.currentUser} path="/home" />
+								<UserBoard session={this.state.currentUser} path="/" />
+							</Router>
+						</div>
+					</div>
 				}
-				</div>
 			</div>
 		);
 	}

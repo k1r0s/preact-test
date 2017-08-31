@@ -4,27 +4,49 @@
       "id": 1,
       "name": "Anna",
       "email": "anna@asd.net",
-      "password": "1234"
+      "password": "1234",
+      "female": true
     },
     {
       "id": 2,
       "name": "John",
       "email": "john@asd.net",
-      "password": "1234"
+      "password": "1234",
+      "female": false
     },
     {
       "id": 3,
       "name": "Philip",
       "email": "pip@asd.net",
-      "password": "1234"
+      "password": "1234",
+      "female": false
+    },
+    {
+      "id": 4,
+      "name": "Alex Mortinger",
+      "email": "alex@asd.net",
+      "password": "1234",
+      "female": false
     }
   ],
   "comments": [
     {
+      "authorId": 2,
+      "timestamp": 1504118933459,
+      "content": "Quia nostrum autem distinctio explicabo voluptatum aut. Earum et nobis dolor.",
+      "id": 53342
+    },
+    {
+      "authorId": 3,
+      "timestamp": 1504118933459,
+      "content": "Ut explicabo ea provident ratione cumque nostrum et. Vel vitae.",
+      "id": 123
+    },
+    {
       "authorId": 1,
-      "timestamp": 1503514700679,
-      "content": "this is a test",
-      "id": 1
+      "timestamp": 1504118933459,
+      "content": "Quia nostrum autem distinctio explicabo. Aspernatur eum ex est rerum aliquam. Occaecati voluptas voluptates voluptas rerum con…",
+      "id": 443
     }
   ]
 }

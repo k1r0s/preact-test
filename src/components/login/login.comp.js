@@ -33,32 +33,34 @@ export default class Login extends Component {
 	render() {
 		return (
 			<Layout.Content class={style.main}>
+        <div class="wrap">
+          <TextField
+            id='email'
+            onChange={this.handleChange}
+            value={this.state.email}
+            placeholder="Email"
+            type="text"
+          />
 
-        <TextField
-          id='email'
-          onChange={this.handleChange}
-          value={this.state.email}
-          placeholder="Email"
-          type="text"
-        />
+          <LayoutSpacer/>
 
-        <LayoutSpacer/>
+          <TextField
+            id='pass'
+            autoComplete='off'
+            onChange={this.handleChange}
+            value={this.state.pass}
+            placeholder="Password"
+            type="password"
+          />
 
-        <TextField
-          id='pass'
-          autoComplete='off'
-          onChange={this.handleChange}
-          value={this.state.pass}
-          placeholder="Password"
-          type="password"
-        />
+          <LayoutSpacer/>
 
-        <LayoutSpacer/>
+          <Button
+            colored
+            onClick={this.submit}
+          >Log me in!</Button>
 
-        <Button
-          colored
-          onClick={this.submit}
-        >Log me in!</Button>
+        </div>
 
 			</Layout.Content>
 		);

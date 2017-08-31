@@ -7,14 +7,29 @@ import timeAgo from '../../utils/timeAgo'
 const boardInstance = board();
 
 function CommentItem({ edit, data, canEdit }) {
+
+	const toLocaleTime = (timestamp) => {
+		const t = new Date(timestamp).toLocaleTimeString().split(":");
+		t.pop();
+		return t.join(":");
+	}
+
+	const getImagePath = (female) => {
+		return !female ? 'assets/profile_male_0.jpg' : 'assets/profile_female_0.jpg';
+	}
+
 	return (
-		<div class={style.commentItem} comment-item>
-			<div>
-				<div><b>{data.author.name} - {timeAgo(data.timestamp)} ago</b>: </div>
-				<div comment-item-content>{data.content}</div>
+		<div class={style.commentItem}>
+			<div image-container>
+				<img src={getImagePath(data.author.female)}/>
 			</div>
-			<div>
-				{canEdit && <Button onClick={edit.bind(null, data)}><Icon>edit</Icon></Button>}
+			<div content>
+				<p>{data.author.name}</p>
+				<div comment-item-content>{data.content}</div>
+				{canEdit && <Button onClick={edit.bind(null, data)}><Icon icon="edit" /></Button>}
+			</div>
+			<div comment-date>
+				<span>{toLocaleTime(data.timestamp)}</span>
 			</div>
 		</div>
 	)
@@ -125,25 +140,28 @@ export default class UserBoard extends Component {
 	render() {
 		return (
 			<div class={style.def} user-board>
-				<ul>
+				<div board-header class="soft-wrap">
+					<span session-name>{this.props.session.name}</span>
+					<span session-status>ONLINE</span>
+					<span update-btn onClick={this.componentDidMount}><Icon white icon="refresh"></Icon></span>
+				</div>
+				<div class="soft-wrap">
+					<p comment-list-outline>{new Date().toDateString()}</p>
 					{this.state.comments.sort(UserBoard.sortComments).map((comment) => (
-						<ListItem>
-							<CommentItem
-								edit={this.setEditMode}
-								data={comment}
-								canEdit={this.checkPermission(comment)}
-							/>
-						</ListItem>
+						<CommentItem
+							edit={this.setEditMode}
+							data={comment}
+							canEdit={this.checkPermission(comment)}
+						/>
 					))}
-				</ul>
-				<NewComment
-					isEdit={this.state.edit}
-					cancel={this.setEditMode}
-					change={this.handleSubmitChange}
-					text={this.state.newCommentText}
-					submit={this.handleSubmit}
-				/>
-				<Button class={style.updateBtn} onClick={this.componentDidMount}><Icon>refresh</Icon></Button>
+					<NewComment
+						isEdit={this.state.edit}
+						cancel={this.setEditMode}
+						change={this.handleSubmitChange}
+						text={this.state.newCommentText}
+						submit={this.handleSubmit}
+					/>
+				</div>
 			</div>
 		);
 	}

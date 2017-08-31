@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import 'https://code.getmdl.io/1.2.1/material.indigo-pink.min.css';
+@import 'https://code.getmdl.io/1.3.0/material.light_blue-green.min.css';
+@import 'https://fonts.googleapis.com/css?family=Ubuntu';
 
 html, body {
 	height: 100%;
@@ -7,7 +8,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background: #EFEFEF;
-	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-family: 'Ubuntu', sans-serif !important;
 	font-weight: 400;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
@@ -19,9 +20,33 @@ html, body {
 }
 
 #app {
-	height: 100%;
+	height: 100vh;
 }
 
-#app-content {
-	display: flex;
+.wrap {
+	padding: 0 10vw;
+}
+
+.soft-wrap {
+	padding: 0 5vw;
+}
+
+.main-container {
+	padding-top: 15vh;
+	height: 100vh;
+	background: -moz-linear-gradient(top, #2856b6 0%, #9fd8ef 35%, #f1f1f1 35%, #f1f1f1 100%);
+	background: -webkit-linear-gradient(top, #2856b6 0%,#9fd8ef 35%,#f7f7f7 35%,#f1f1f1 100%);
+	background: linear-gradient(to bottom, #2856b6 0%,#9fd8ef 35%,#f1f1f1 35%,#f1f1f1 100%);
+}
+
+a i {
+	color: black;
+}
+
+[white] {
+	color: white;
+}
+
+i {
+	font-size: 1.4em !important;
 }
