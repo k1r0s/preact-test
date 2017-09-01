@@ -55,10 +55,10 @@
     "jest": "^20.0.4",
     "moxios": "^0.4.0",
     "nightmare": "^2.10.0",
-    "preact-cli": "^1.4.1",
     "preact-jsx-chai": "^2.2.1"
   },
   "dependencies": {
+    "preact-cli": "^1.4.1",
     "axios": "^0.16.2",
     "eslint": "^4.3.0",
     "json-server": "^0.12.0",
