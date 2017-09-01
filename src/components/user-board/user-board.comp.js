@@ -24,9 +24,9 @@ function CommentItem({ edit, data, canEdit }) {
 				<img src={getImagePath(data.author.female)}/>
 			</div>
 			<div content>
-				<p>{data.author.name}</p>
+				<p>{data.author.name} <span timeago>{timeAgo(data.timestamp)} ago</span></p>
 				<div comment-item-content>{data.content}</div>
-				{canEdit && <Button onClick={edit.bind(null, data)}><Icon icon="edit" /></Button>}
+				{canEdit && <a onClick={edit.bind(null, data)}><Icon icon="edit" /></a>}
 			</div>
 			<div comment-date>
 				<span>{toLocaleTime(data.timestamp)}</span>
@@ -38,15 +38,19 @@ function CommentItem({ edit, data, canEdit }) {
 function NewComment({ cancel, isEdit, change, text, submit }) {
 	return (
 		<div class={style.commentForm} new-comment>
+			<a><Icon grey icon="reply all"/></a>
 			<TextField
+				form-input
 				id="newCommentText"
-				placeholder="Type a comment.. "
+				placeholder="Start typing your message or drop a file.."
 				onChange={change}
 				value={text}
 				type="text"
 			/>
-			<Button onClick={submit}><Icon primary>{isEdit ? "create" : "send"}</Icon></Button>
-			{isEdit && <Button onClick={cancel.bind(null, null)}><Icon primary>cancel</Icon></Button>}
+			<div actions>
+				<Button bg-blue white onClick={submit}>{isEdit ? "edit" : "send"}</Button>
+				{isEdit && <Button onClick={cancel.bind(null, null)}><Icon primary red>cancel</Icon></Button>}
+			</div>
 		</div>
 	)
 }
@@ -154,6 +158,8 @@ export default class UserBoard extends Component {
 							canEdit={this.checkPermission(comment)}
 						/>
 					))}
+				</div>
+				<div class="soft-wrap" user-board-footer>
 					<NewComment
 						isEdit={this.state.edit}
 						cancel={this.setEditMode}

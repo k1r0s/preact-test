@@ -39,6 +39,10 @@ html, body {
 	background: linear-gradient(to bottom, #2856b6 0%,#9fd8ef 35%,#f1f1f1 35%,#f1f1f1 100%);
 }
 
+a:hover, [update-btn] {
+	cursor: pointer;
+}
+
 a i {
 	color: black;
 }
@@ -47,6 +51,23 @@ a i {
 	color: white;
 }
 
+[bg-blue] {
+	background-color: #326fec;
+}
+
+[red] {
+	color: red;
+}
+
+[grey] {
+	color: grey;
+}
+
 i {
 	font-size: 1.4em !important;
+}
+
+
+input.mdl-textfield__input {
+	font-size: 12px;
 }
